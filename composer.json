@@ -1,0 +1,19 @@
+{
+    "name": "luxid/luxid",
+    "description": "A light-weight mordern PHP MVC framework.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "engine\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "SinofPride-999",
+            "email": "jhaycodes999@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
