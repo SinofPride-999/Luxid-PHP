@@ -1,5 +1,5 @@
     <div class="home_container">
-        <h1>Welcome to Luxid Framework</h1>
+        <h1>Welcome to Luxid Framework, <?php echo $name ?></h1>
         <p>
         Luxid is a lightweight PHP framework built on the SEA architecture: <strong>Screens, Entities, Actions</strong>.
         It simplifies building modern web applications with a clean, maintainable structure.

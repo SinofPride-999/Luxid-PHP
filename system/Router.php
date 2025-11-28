@@ -51,10 +51,10 @@ class Router
         return call_user_func($callback);
     }
 
-    public function renderScreen($screen)
+    public function renderScreen($screen, $data = [])
     {
         $frameContent = $this->frameContent();
-        $screenContent = $this->renderOnlyScreen($screen);
+        $screenContent = $this->renderOnlyScreen($screen, $data);
 
         return str_replace('|| content ||', $screenContent, $frameContent);
     }
@@ -73,8 +73,12 @@ class Router
         return ob_get_clean();    // returns whatever that's in th buffer and clears it
     }
 
-    protected function renderOnlyScreen($screen)
+    protected function renderOnlyScreen($screen, $data)
     {
+        foreach ($data as $key => $value) {
+            $$key = $value;
+        }
+
         ob_start();
         include_once Application::$ROOT_DIR . "/screens/$screen.nova.php";
         return ob_get_clean();
