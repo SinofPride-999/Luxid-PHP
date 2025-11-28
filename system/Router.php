@@ -47,6 +47,11 @@ class Router
             return $this->renderScreen($callback);
         }
 
+        // to make it an object and not an instance
+        if (is_array($callback)) {
+            $callback[0] = new $callback[0]();
+        }
+
         // execute callback
         return call_user_func($callback);
     }
@@ -85,3 +90,4 @@ class Router
     }
 
 }
+
