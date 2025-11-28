@@ -26,7 +26,9 @@ class HelloAction extends Action
     public function handleContact(Request $request)
     {
         $body = $request->getBody();
-        
+
         return 'Handling Submitted Data ...';
     }
 }
+
+// registration

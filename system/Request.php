@@ -16,7 +16,7 @@ class Request
         return substr($path, 0, $position);
     }
 
-    public function getMethod()
+    public function method()
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
@@ -24,7 +24,7 @@ class Request
     public function getBody()
     {
         $body = [];
-        $method = $this->getMethod();
+        $method = $this->method();
 
         /**
             have a look in the Super Global 'GET' and 'POST
@@ -43,6 +43,16 @@ class Request
         }
 
         return $body;
+    }
+
+    // Utility Methods (helpers) ================
+    public function isGet()
+    {
+        return $this->method() === 'get';
+    }
+    public function isPost()
+    {
+        return $this->method() === 'post';
     }
 
 }

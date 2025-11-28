@@ -9,6 +9,7 @@ class Application
     public Request $request;
     public Response $response;
     public static Application $app;
+    public Action $action;
 
     public function __construct($rootPath)
     {
@@ -23,5 +24,15 @@ class Application
     public function run()
     {
         echo $this->router->resolve();
+    }
+
+    // getter | setter ======================
+    public function getAction()
+    {
+        return $this->action;
+    }
+    public function setAction(Action $action)
+    {
+        $this->action = $action;
     }
 }

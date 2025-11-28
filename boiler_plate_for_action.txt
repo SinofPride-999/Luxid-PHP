@@ -1,0 +1,14 @@
+<?php
+
+namespace engine\actions;
+
+use engine\system\Action;
+
+class Action extends Action
+{
+    public function ()
+    {
+
+    }
+}
+

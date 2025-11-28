@@ -19,58 +19,6 @@
     }
     /* ============================================ */
 
-    /* Navbar */
-    /* ============================================ */
-    nav {
-      background-color: #4CAF50;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover {
-      color: #e0e0e0;
-    }
-    /* Responsive Navbar */
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        display: none;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      nav .menu-toggle {
-        display: block;
-        cursor: pointer;
-        color: white;
-        font-size: 1.5rem;
-      }
-    }
-    nav .menu-toggle {
-      display: none;
-    }
-    /* ============================================ */
-
     /* Home */
     /* ============================================ */
     .home_container {
@@ -141,20 +89,6 @@
   </style>
 </head>
 <body>
-
-  <nav>
-    <div class="logo">Luxid</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul id="nav-links" style="margin-left: 100px;">
-      <li><a href="/">Home</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-
-    <ul id="nav-links" style="margin-left: 100px;">
-      <li><a href="/login">Login</a></li>
-      <li><a href="/register">Register</a></li>
-    </ul>
-  </nav>
 
   || content ||
 

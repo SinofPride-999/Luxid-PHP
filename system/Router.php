@@ -35,7 +35,7 @@ class Router
     public function resolve()
     {
         $path = $this->request->getPath();
-        $method = $this->request->getMethod();
+        $method = $this->request->method();
         $callback = $this->routes[$method][$path] ?? false;
 
         if ($callback === false) {
@@ -47,9 +47,10 @@ class Router
             return $this->renderScreen($callback);
         }
 
-        // to make it an object and not an instance
+        // to make the action an object, not an instance
         if (is_array($callback)) {
-            $callback[0] = new $callback[0]();
+            Application::$app->action = new $callback[0]();
+            $callback[0] = Application::$app->action;
         }
 
         // execute callback
@@ -73,8 +74,10 @@ class Router
 
     protected function frameContent()
     {
+        $frame = Application::$app->action->frame;
+
         ob_start();   // basically starts the output caching - so nothing get outputted on the browser
-        include_once Application::$ROOT_DIR . "/screens/frames/app.nova.php";
+        include_once Application::$ROOT_DIR . "/screens/frames/$frame.nova.php";
         return ob_get_clean();    // returns whatever that's in th buffer and clears it
     }
 
