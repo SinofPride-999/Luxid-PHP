@@ -5,6 +5,7 @@ namespace engine\system;
 class Router
 {
     public Request $request;
+    public Response $response;
     protected array $routes = [
         /* 'get' => [
             '/' => callback,
@@ -15,9 +16,10 @@ class Router
         ], */
     ];
 
-    public function __construct(Request $request)
+    public function __construct(Request $request, Response $response)
     {
         $this->request = $request;
+        $this->response = $response;
     }
 
     public function get($path, $callback)
@@ -32,6 +34,7 @@ class Router
         $callback = $this->routes[$method][$path] ?? false;
 
         if ($callback === false) {
+            $this->response->setStatusCode(404);
             return "Not found";
         }
 
@@ -45,7 +48,24 @@ class Router
 
     public function renderScreen($screen)
     {
-        include_once __DIR__ . "/../screens/$screen.nova.php";
+        $frameContent = $this->frameContent();
+        $screenContent = $this->renderOnlyScreen($screen);
+
+        return str_replace('|| content ||', $screenContent, $frameContent);
+    }
+
+    protected function frameContent()
+    {
+        ob_start();   // basically starts the output caching - so nothing get outputted on the browser
+        include_once Application::$ROOT_DIR . "/screens/frames/app.nova.php";
+        return ob_get_clean();    // returns whatever that's in th buffer and clears it
+    }
+
+    protected function renderOnlyScreen($screen)
+    {
+        ob_start();
+        include_once Application::$ROOT_DIR . "/screens/$screen.nova.php";
+        return ob_get_clean();
     }
 
 }
