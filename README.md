@@ -67,7 +67,7 @@ A full contribution guide will be included in the documentation, but in general:
 
 If you discover a security issue within Luxid, please contact:
 
-**Email:** security@luxid.dev *(replace later when ready)*
+**Email:** jhay@luxid.dev
 
 All vulnerabilities will be reviewed and patched promptly.
 
@@ -77,14 +77,3 @@ All vulnerabilities will be reviewed and patched promptly.
 
 Luxid is open-source software licensed under the **MIT License**.
 
----
-
-If you’d like, I can also:
-
-✅ Add installation instructions
-✅ Add a CLI usage section
-✅ Add usage examples (routing, actions, screens)
-✅ Generate a real logo for Luxid
-✅ Format it as a GitHub-optimized README with badges, sections, and visuals
-
-Just tell me!
