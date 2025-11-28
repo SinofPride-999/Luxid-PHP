@@ -53,7 +53,7 @@ class Router
         }
 
         // execute callback
-        return call_user_func($callback);
+        return call_user_func($callback, $this->request);
     }
 
     public function renderScreen($screen, $data = [])

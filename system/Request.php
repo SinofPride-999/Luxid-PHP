@@ -23,7 +23,26 @@ class Request
 
     public function getBody()
     {
-        // todo
+        $body = [];
+        $method = $this->getMethod();
+
+        /**
+            have a look in the Super Global 'GET' and 'POST
+            find the key, take the value
+            remove invalid chars and insert into the body
+        */
+        if ($method === 'get') {
+            foreach ($_GET as $key => $value) {
+                $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+            }
+        }
+        if ($method === 'post') {
+            foreach ($_POST as $key => $value) {
+                $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+            }
+        }
+
+        return $body;
     }
 
 }

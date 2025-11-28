@@ -3,6 +3,9 @@
 namespace engine\actions;
 
 use engine\system\Action;
+use engine\system\Application;
+use engine\system\Request;
+
 // use engine\system\Application;
 
 class HelloAction extends Action
@@ -20,8 +23,10 @@ class HelloAction extends Action
         return  $this->nova('contact');
     }
 
-    public function handleContact()
+    public function handleContact(Request $request)
     {
+        $body = $request->getBody();
+        
         return 'Handling Submitted Data ...';
     }
 }
