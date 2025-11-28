@@ -1,10 +1,8 @@
 <?php
 
-namespace engine\actions;
+namespace engine\;
 
-use engine\system\Action;
-
-class Action extends Action
+class 
 {
     public function ()
     {
